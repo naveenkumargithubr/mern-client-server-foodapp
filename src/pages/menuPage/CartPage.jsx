@@ -20,7 +20,7 @@ const CartPage = () => {
   // Handle quantity increase
   const handleIncrease = (item) => {
     // console.log(item._id);
-    fetch(`http://localhost:6001/carts/${item._id}`, {
+    fetch(`https://complete-backend-server.onrender.com/carts/${item._id}`, {
       method: "PUT",
       headers: {
         "Content-type": "application/json; charset=UTF-8",
@@ -46,7 +46,7 @@ const CartPage = () => {
   const handleDecrease = (item) => {
     // console.log(item._id);
     if (item.quantity > 1) {
-      fetch(`http://localhost:6001/carts/${item._id}`, {
+      fetch(`https://complete-backend-server.onrender.com/carts/${item._id}`, {
         method: "PUT",
         headers: {
           "Content-type": "application/json; charset=UTF-8",
@@ -93,7 +93,9 @@ const CartPage = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:6001/carts/${item._id}`)
+          .delete(
+            `https://complete-backend-server.onrender.com/carts/${item._id}`
+          )
           .then((response) => {
             if (response) {
               refetch();
